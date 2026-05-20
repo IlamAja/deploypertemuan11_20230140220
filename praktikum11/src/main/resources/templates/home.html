@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Plus Jakarta Sans', sans-serif; } </style>
+</head>
+<body class="bg-zinc-50 text-zinc-900 min-h-screen flex flex-col">
+
+<nav class="bg-white border-b border-zinc-200 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-zinc-950"></div>
+            <a th:href="@{/home}" class="font-bold text-lg tracking-tight">Dashboard</a>
+        </div>
+
+        <div>
+            <a th:href="@{/logout}" class="text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 px-3 py-2 rounded-lg transition cursor-pointer">
+                Logout
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main class="flex-1 max-w-4xl w-full mx-auto px-4 py-12 flex flex-col items-center justify-center">
+
+    <div class="bg-white border border-zinc-200 shadow-xs rounded-2xl p-8 w-full max-w-md">
+
+        <div class="flex flex-col items-center text-center border-b border-zinc-100 pb-6 mb-6">
+            <div class="w-16 h-16 bg-zinc-900 text-white rounded-full flex items-center justify-center text-xl font-bold mb-3 shadow-xs">
+                U
+            </div>
+            <h2 class="text-xl font-bold text-zinc-900">Profil Pengguna</h2>
+            <p class="text-xs text-zinc-400 mt-0.5">Detail akun yang sedang aktif</p>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <span class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1">Nama Lengkap</span>
+                <div class="bg-zinc-50 border border-zinc-100 rounded-lg px-4 py-2.5 text-sm font-medium text-zinc-800">
+                    <span th:text="${profile.nama}">Nama User</span>
+                </div>
+            </div>
+
+            <div>
+                <span class="block text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1">Alamat Tinggal</span>
+                <div class="bg-zinc-50 border border-zinc-100 rounded-lg px-4 py-2.5 text-sm font-medium text-zinc-800">
+                    <span th:text="${profile.alamat}">Alamat User</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="py-6 bg-white border-t border-zinc-200">
+    <div class="max-w-4xl mx-auto px-4 text-center text-[11px] text-zinc-400">
+        &copy; 2026 Aplikasi Kontrol Akun. Built with Spring Boot & Thymeleaf.
+    </div>
+</footer>
+
+</body>
+</html>
